@@ -11,7 +11,7 @@ public class MyFrame extends JComponent {
     private String bgColor;
     private String segmentColor;
     private double angle = 0;
-    private final double ROTATE = Math.PI/60;
+    private static final double ROTATE = Math.PI/60;
 
     MyFrame(String stroke, String bgColor, String segmentColor, int delay) {
         this.stroke = stroke;
