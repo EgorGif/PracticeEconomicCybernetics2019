@@ -14,7 +14,7 @@ public class MyFrame extends JComponent {
     private double angle = 0;
     private final double ROTATE = Math.PI/60;
 
-    MyFrame(String stroke, String bgColor, String segmentColor,int delay) {
+    MyFrame(String stroke, String bgColor, String segmentColor, int delay) {
         this.stroke = stroke;
         this.bgColor = bgColor;
         this.segmentColor = segmentColor;
@@ -30,14 +30,14 @@ public class MyFrame extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Segment seg = new Segment(angle,bgColor,stroke,segmentColor);
+        Segment seg = new Segment(angle, bgColor, stroke, segmentColor);
         seg.paint(g);
-        angle+=ROTATE;
+        angle += ROTATE;
     }
 
     public static void main(String args[]) {
         JFrame frame = new JFrame("Segment");
-        MyFrame MF = new MyFrame(args[0], args[1], args[2],30);
+        MyFrame MF = new MyFrame(args[0], args[1], args[2], 30);
         frame.add(MF);
         frame.setSize(700, 700);
         frame.setLocationRelativeTo(null);
