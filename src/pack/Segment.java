@@ -18,7 +18,7 @@ public class Segment extends Canvas implements Shape {
     private double angle;
 
 
-    Segment(double angle,String bgColor, String stroke,String segmentColor){
+    Segment(double angle, String bgColor, String stroke, String segmentColor){
         this.angle = angle;
         this.segment = new Rectangle2D.Double(x1, y1, width, height);
         this.bgColor = bgColor;
