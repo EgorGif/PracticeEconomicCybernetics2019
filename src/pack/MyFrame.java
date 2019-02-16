@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 public class MyFrame extends JComponent {
 
-    private Timer timer;
     private String stroke;
     private String bgColor;
     private String segmentColor;
@@ -19,7 +18,7 @@ public class MyFrame extends JComponent {
         this.bgColor = bgColor;
         this.segmentColor = segmentColor;
 
-        timer = new Timer(delay, new ActionListener() {
+        Timer timer = new Timer(delay, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 repaint();
             }
