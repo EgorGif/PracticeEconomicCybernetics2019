@@ -1,5 +1,4 @@
 package pack;
-
 import java.awt.*;
 import java.awt.geom.*;
 import java.awt.geom.AffineTransform;
@@ -16,7 +15,6 @@ public class Segment extends Canvas implements Shape {
     private int height = 10;
     private int y1 = 250;
     private double angle;
-
 
     Segment(double angle, String bgColor, String stroke, String segmentColor){
         this.angle = angle;
