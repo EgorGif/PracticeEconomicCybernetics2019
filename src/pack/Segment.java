@@ -14,10 +14,11 @@ public class Segment extends Canvas implements Shape {
     private int height = 10;
     private int y1 = 250;
     private double angle;
-    
-    public void setAngle(double rotate){this.angle += rotate;}
 
-    Segment(double angle, String bgColor, String stroke, String segmentColor){
+    public void setAngle(final double rotate){this.angle += rotate;}
+
+    Segment(double angle, String bgColor, final String stroke, String segmentColor){
+        super();
         this.angle = angle;
         this.segment = new Rectangle2D.Double(x1, y1, width, height);
         this.bgColor = bgColor;
@@ -26,9 +27,9 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint(final Graphics g) {
         final Graphics2D graphics2D = (Graphics2D) g;
-        AffineTransform at = AffineTransform.getRotateInstance(angle, x1, y1+5);
+        final AffineTransform at = AffineTransform.getRotateInstance(angle, x1, y1+5);
         graphics2D.setTransform(at);
         graphics2D.setStroke(new BasicStroke(Float.valueOf(stroke)));
         graphics2D.setColor(new Color(Integer.valueOf(bgColor,16)));
@@ -38,12 +39,12 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public boolean contains(Point2D arg0) {
+    public boolean contains(final Point2D arg0) {
         return shapeArea.contains(arg0);
     }
 
     @Override
-    public boolean contains(Rectangle2D arg0) {
+    public boolean contains(final Rectangle2D arg0) {
         return shapeArea.contains(arg0);
     }
 
@@ -53,7 +54,7 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public boolean contains(double arg0, double arg1, double arg2, double arg3) {
+    public boolean contains(double arg0, double arg1, double arg2, final double arg3) {
         return shapeArea.contains(arg0, arg1, arg2, arg3);
     }
 
@@ -68,12 +69,12 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public PathIterator getPathIterator(AffineTransform arg0) {
+    public PathIterator getPathIterator(final AffineTransform arg0) {
         return shapeArea.getPathIterator(arg0);
     }
 
     @Override
-    public PathIterator getPathIterator(AffineTransform arg0, double arg1) {
+    public PathIterator getPathIterator(AffineTransform arg0, final double arg1) {
         return shapeArea.getPathIterator(arg0, arg1);
     }
 
@@ -83,7 +84,7 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public boolean intersects(double arg0, double arg1, double arg2, double arg3) {
+    public boolean intersects(double arg0, double arg1, double arg2, final double arg3) {
         return shapeArea.intersects(arg0, arg1, arg2, arg3);
     }
 
