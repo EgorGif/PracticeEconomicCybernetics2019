@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 public class MyFrame extends JComponent {
 
     private Segment segment;
-    double angle;
+    private double angle;
     private static final double ROTATE = Math.PI/60;
 
-    MyFrame(final String stroke, String bgColor, String segmentColor, int delay) {
+    MyFrame(final String stroke, final String bgColor, final String segmentColor, final int delay) {
         super();
         segment = new Segment(angle,bgColor,stroke,segmentColor);
         final Timer timer = new Timer(delay, new ActionListener() {
