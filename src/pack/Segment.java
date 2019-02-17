@@ -1,7 +1,6 @@
 package pack;
 import java.awt.*;
 import java.awt.geom.*;
-import java.awt.geom.AffineTransform;
 
 public class Segment extends Canvas implements Shape {
 
@@ -28,7 +27,7 @@ public class Segment extends Canvas implements Shape {
 
     @Override
     public void paint(Graphics g) {
-        Graphics2D graphics2D = (Graphics2D) g;
+        final Graphics2D graphics2D = (Graphics2D) g;
         AffineTransform at = AffineTransform.getRotateInstance(angle, x1, y1+5);
         graphics2D.setTransform(at);
         graphics2D.setStroke(new BasicStroke(Float.valueOf(stroke)));
@@ -49,7 +48,7 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public boolean contains(double arg0, double arg1) {
+    public boolean contains(double arg0, final double arg1) {
         return shapeArea.contains(arg0, arg1);
     }
 
@@ -79,7 +78,7 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public boolean intersects(Rectangle2D arg0) {
+    public boolean intersects(final Rectangle2D arg0) {
         return shapeArea.intersects(arg0);
     }
 
