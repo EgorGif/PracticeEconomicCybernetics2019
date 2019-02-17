@@ -29,7 +29,7 @@ public class MyFrame extends JComponent {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(final Graphics g) {
         super.paintComponent(g);
         segment.setAngle(ROTATE);
         segment.paint(g);
@@ -37,7 +37,7 @@ public class MyFrame extends JComponent {
 
     public static void main(final String args[]) {
         JFrame frame = new JFrame("Segment");
-        MyFrame MF = new MyFrame(args[0], args[1], args[2], 30);
+        final MyFrame MF = new MyFrame(args[0], args[1], args[2], 30);
         frame.add(MF);
         frame.setSize(700, 700);
         frame.setLocationRelativeTo(null);
