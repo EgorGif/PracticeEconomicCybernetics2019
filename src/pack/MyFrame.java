@@ -35,7 +35,7 @@ public class MyFrame extends JComponent {
         seg.paint(g);
     }
 
-    public static void main(String args[]) {
+    public static void main(final String args[]) {
         JFrame frame = new JFrame("Segment");
         MyFrame MF = new MyFrame(args[0], args[1], args[2], 30);
         frame.add(MF);
