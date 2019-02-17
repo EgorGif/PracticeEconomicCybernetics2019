@@ -8,19 +8,14 @@ import java.awt.event.ActionListener;
 public class MyFrame extends JComponent {
 
     private Segment segment;
-    private String stroke;
-    private String bgColor;
-    private String segmentColor;
-    private double angle = 0;
+    double angle;
     private static final double ROTATE = Math.PI/60;
 
-    MyFrame(String stroke, String bgColor, String segmentColor, int delay) {
-        this.stroke = stroke;
-        this.bgColor = bgColor;
-        this.segmentColor = segmentColor;
+    MyFrame(final String stroke, String bgColor, String segmentColor, int delay) {
+        super();
         segment = new Segment(angle,bgColor,stroke,segmentColor);
-        Timer timer = new Timer(delay, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        final Timer timer = new Timer(delay, new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
                 angle+=ROTATE;
                 repaint();
             }
@@ -36,7 +31,7 @@ public class MyFrame extends JComponent {
     }
 
     public static void main(final String args[]) {
-        JFrame frame = new JFrame("Segment");
+        final JFrame frame = new JFrame("Segment");
         final MyFrame MF = new MyFrame(args[0], args[1], args[2], 30);
         frame.add(MF);
         frame.setSize(700, 700);
