@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 public class MyFrame extends JComponent {
 
+    private Segment segment;
     private String stroke;
     private String bgColor;
     private String segmentColor;
@@ -20,6 +21,7 @@ public class MyFrame extends JComponent {
 
         Timer timer = new Timer(delay, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                angle += ROTATE;
                 repaint();
             }
         });
@@ -29,9 +31,8 @@ public class MyFrame extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Segment seg = new Segment(angle, bgColor, stroke, segmentColor);
+        segment = new Segment(angle, bgColor, stroke, segmentColor);
         seg.paint(g);
-        angle += ROTATE;
     }
 
     public static void main(String args[]) {
