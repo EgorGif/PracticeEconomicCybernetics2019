@@ -15,6 +15,8 @@ public class Segment extends Canvas implements Shape {
     private int height = 10;
     private int y1 = 250;
     private double angle;
+    
+    public void setAngle(double rotate){this.angle += rotate;}
 
     Segment(double angle, String bgColor, String stroke, String segmentColor){
         this.angle = angle;
