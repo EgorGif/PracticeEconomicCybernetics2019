@@ -34,7 +34,6 @@ public class Segment extends Canvas implements Shape {
         graphics2D.fillRect(this.x1, this.y1, this.width, this.height);
         graphics2D.setColor(new Color(Integer.valueOf(segmentColor,16)));
         graphics2D.draw(segment);
-
     }
 
     @Override
