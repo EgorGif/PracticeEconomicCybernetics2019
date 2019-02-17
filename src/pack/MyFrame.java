@@ -18,10 +18,10 @@ public class MyFrame extends JComponent {
         this.stroke = stroke;
         this.bgColor = bgColor;
         this.segmentColor = segmentColor;
-
+        segment = new Segment(angle,bgColor,stroke,segmentColor);
         Timer timer = new Timer(delay, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                angle += ROTATE;
+                angle+=ROTATE;
                 repaint();
             }
         });
@@ -31,8 +31,8 @@ public class MyFrame extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        segment = new Segment(angle, bgColor, stroke, segmentColor);
-        seg.paint(g);
+        segment.setAngle(ROTATE);
+        segment.paint(g);
     }
 
     public static void main(final String args[]) {
