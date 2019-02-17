@@ -17,7 +17,7 @@ public class Segment extends Canvas implements Shape {
 
     public void setAngle(final double rotate){this.angle += rotate;}
 
-    Segment(double angle, String bgColor, final String stroke, String segmentColor){
+    Segment(final double angle, final String bgColor, final String stroke, final String segmentColor){
         super();
         this.angle = angle;
         this.segment = new Rectangle2D.Double(x1, y1, width, height);
@@ -49,12 +49,12 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public boolean contains(double arg0, final double arg1) {
+    public boolean contains(final double arg0, final double arg1) {
         return shapeArea.contains(arg0, arg1);
     }
 
     @Override
-    public boolean contains(double arg0, double arg1, double arg2, final double arg3) {
+    public boolean contains(final double arg0, final double arg1, final double arg2, final double arg3) {
         return shapeArea.contains(arg0, arg1, arg2, arg3);
     }
 
@@ -74,7 +74,7 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public PathIterator getPathIterator(AffineTransform arg0, final double arg1) {
+    public PathIterator getPathIterator(final AffineTransform arg0, final double arg1) {
         return shapeArea.getPathIterator(arg0, arg1);
     }
 
@@ -84,7 +84,7 @@ public class Segment extends Canvas implements Shape {
     }
 
     @Override
-    public boolean intersects(double arg0, double arg1, double arg2, final double arg3) {
+    public boolean intersects(final double arg0, final double arg1, final double arg2, final double arg3) {
         return shapeArea.intersects(arg0, arg1, arg2, arg3);
     }
 
