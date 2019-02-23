@@ -6,51 +6,34 @@ import java.awt.event.WindowEvent;
 
 class GraphSampleFrame extends JFrame {
 
-    static final String classname = "RoadSign";
+    private static final String CLASSNAME = "RoadSign";
 
     public GraphSampleFrame(final GraphSample[] examples) {
         super("GraphSampleFrame");
-
-        Container cpane = getContentPane();
+        final Container cpane = getContentPane();
         cpane.setLayout(new BorderLayout());
         final JTabbedPane tpane = new JTabbedPane();
         cpane.add(tpane, BorderLayout.CENTER);
-
-        this.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-
         for (int i = 0; i < examples.length; i++) {
-            GraphSample e = examples[i];
+            final GraphSample e = examples[i];
             tpane.addTab(e.getName(), new GraphSamplePane(e));
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         GraphSample[] examples = new GraphSample[1];
-
         try {
-            Class exampleClass = Class.forName("pack."+classname);
+            final Class exampleClass = Class.forName("pack."+CLASSNAME);
             examples[0] = (GraphSample) exampleClass.newInstance();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
-            System.err.println("Couldn't find example: "  + classname);
-            System.exit(1);
-        }
-        catch (ClassCastException e) {
-            System.err.println("Class " + classname +
-                    " is not a GraphSample");
-            System.exit(1);
-        }
-        catch (Exception e) {
-            System.err.println("Couldn't instantiate example: " +
-                    classname);
-            System.exit(1);
-        }
-
-        GraphSampleFrame f = new GraphSampleFrame(examples);
+        final GraphSampleFrame f = new GraphSampleFrame(examples);
+        f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         f.pack();
         f.setVisible(true);
     }
