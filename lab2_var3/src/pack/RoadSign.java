@@ -9,15 +9,15 @@ import java.awt.image.Kernel;
 
 public class RoadSign implements Shape, GraphSample {
     private Area shapeArea = new Area();
-    static final int WIDTH = 1000, HEIGHT = 500;
+    private static final int WIDTH = 1000, HEIGHT = 500;
     public String getName() { return "Paints"; }
     public int getWidth() { return WIDTH; }
     public int getHeight() { return HEIGHT; }
 
-    public void draw(Graphics2D ig, Component c) {
+    public void draw(final Graphics2D ig, Component c) {
 
         BufferedImage bimage = new BufferedImage(WIDTH/2, HEIGHT, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g = bimage.createGraphics();
+        final Graphics2D g = bimage.createGraphics();
 
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -32,16 +32,16 @@ public class RoadSign implements Shape, GraphSample {
         g.setColor(Color.white);
         g.fillOval(70, 70, WIDTH/2 - 140, HEIGHT - 140);
 
-        Font font = new Font("Serif", Font.BOLD, 17);
-        Font bigfont = font.deriveFont(AffineTransform.getScaleInstance(30.0, 30.0));
-        GlyphVector gv = bigfont.createGlyphVector(g.getFontRenderContext(),
+        final Font font = new Font("Serif", Font.BOLD, 17);
+        final Font bigfont = font.deriveFont(AffineTransform.getScaleInstance(30.0, 30.0));
+        final GlyphVector gv = bigfont.createGlyphVector(g.getFontRenderContext(),
                 "-");
-        Shape shapeD = gv.getGlyphOutline(0);
+        final Shape shapeD = gv.getGlyphOutline(0);
 
         g.setStroke(new BasicStroke(5.0f));
 
-        Paint shadowPaint = new Color(0, 0, 0, 100);
-        AffineTransform shadowTransform = AffineTransform.getShearInstance(-1.0, 0.0);
+        final Paint shadowPaint = new Color(0, 0, 0, 100);
+        final AffineTransform shadowTransform = AffineTransform.getShearInstance(-1.0, 0.0);
         shadowTransform.scale(1, 0.5);
 
         g.translate(160, 365);
