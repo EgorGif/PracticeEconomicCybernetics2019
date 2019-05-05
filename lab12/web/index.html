@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Chooser and Viewer</title>
+</head>
+<body>
+<p>
+<form action="FileChooserViewertest" id="myform">
+    <table>
+        <tr>
+            <td width="200">
+                <h2>
+                    <div><a onclick="hidetxt('id1'); return false;" href="#" rel="nofollow">
+                        <p> Poetry </p> </a>
+                </h2>
+                <div id="id1" style="display: none">
+                    <p>
+                    <h3 align="center">
+                        <input type="radio" name="poetry" value="Poetry0"> Poetry0 <br>
+                        <input type="radio" name="poetry" value="Poetry1"> Poetry1 <br>
+                        <input type="radio" name="poetry" value="Poetry2"> Poetry2 <br>
+                    </p>
+                </div>
+
+                <!-- <br><input type="submit" value="open">  -->
+                </div>
+            </td>
+            <td width="200">
+                <h2 align="center">
+                    <div><a onclick="hidetxt('id2'); return false;" href="#" rel="nofollow">
+                        <p> Detective </p></a>
+                </h2>
+                <div id="id2" style="display: none">
+                    <p>
+                    <h3 align="center">
+                        <input type="radio" name="detective" value="Detective0"> Detective0 <br>
+                        <input type="radio" name="detective" value="Detective1"> Detective1 <br>
+                        <input type="radio" name="detective" value="Detective2"> Detective2 <br>
+                        <input type="radio" name="detective" value="Detective3"> Detective3 <br></p>
+                    </p>
+                </div>
+                <!--  <br><input type="submit" value="open">  -->
+                </div>
+            </td>
+            <td width="200">
+                <h2 align="center">
+                    <div><a onclick="hidetxt('id3'); return false;" href="#" rel="nofollow">
+                        <p> Fantasy </p></a>
+                </h2>
+                <div id="id3" style="display: none">
+                    <p>
+                    <h3 align="center">
+                        <input type="radio" name="fantasy" value="Fantasy0"> Fantasy0 <br>
+                        <input type="radio" name="fantasy" value="Fantasy1"> Fantasy1 <br>
+                        <input type="radio" name="fantasy" value="Fantasy2"> Fantasy2 <br></p>
+                    </p>
+                </div>
+                <!--  <br><input type="submit" value="open">  -->
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <input align="left" type="submit" value="Open"/>
+    </div>
+</form>
+</body>
+</html>
+
+<script>
+    var show;
+    function hidetxt(type) {
+        document.getElementById("myform").reset();
+        param = document.getElementById(type);
+        if (param.style.display == "none") {
+            if (show) show.style.display = "none";
+            param.style.display = "block";
+            show = param;
+        } else param.style.display = "none"
+    }
+</script>
